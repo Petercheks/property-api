@@ -91,13 +91,22 @@ WSGI_APPLICATION = 'complex_admin.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'complex_admin',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'NAME': 't14WQh9ckM',
+        'USER': 't14WQh9ckM',
+        'PASSWORD': 'NkrZMHfscT',
+        'HOST': 'remotemysql.com',
         'PORT': '3306',
     }
 }
+
+#remote server (only for TESt and QA)
+'''
+Username: t14WQh9ckM
+Database Name: t14WQh9ckM
+Password: NkrZMHfscT
+Server: remotemysql.com
+Port: 3306
+'''
 
 
 # Password validation
