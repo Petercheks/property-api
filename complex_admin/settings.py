@@ -91,20 +91,20 @@ WSGI_APPLICATION = 'complex_admin.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 't14WQh9ckM',
-        'USER': 't14WQh9ckM',
-        'PASSWORD': 'NkrZMHfscT',
-        'HOST': 'remotemysql.com',
+        'NAME': 'property_dev',
+        'USER': 'propertyuser',
+        'PASSWORD': 'admin2022',
+        'HOST': 'db4free.net',
         'PORT': '3306',
     }
 }
 
 #remote server (only for TESt and QA)
 '''
-Username: t14WQh9ckM
-Database Name: t14WQh9ckM
-Password: NkrZMHfscT
-Server: remotemysql.com
+Username: propertyuser
+Database Name: property_dev
+Password: admin2022
+Server: db4free.net
 Port: 3306
 '''
 
