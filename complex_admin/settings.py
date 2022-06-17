@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +21,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-*r(zopbs@paj2u3n5&eb=fd6jy@6zmjwhzhnvc0sy5lcg@_t@$'
+# SECRET_KEY = 'django-insecure-*r(zopbs@paj2u3n5&eb=fd6jy@6zmjwhzhnvc0sy5lcg@_t@$' LO TRAEMOS DEL .ENV
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -90,24 +92,14 @@ WSGI_APPLICATION = 'complex_admin.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'property_dev',
-        'USER': 'propertyuser',
-        'PASSWORD': 'admin2022',
-        'HOST': 'db4free.net',
-        'PORT': '3306',
+        'ENGINE':   config('ENGINE_DB'),
+        'NAME': config('NAME_DB'),
+        'USER': config('USER_DB'),
+        'PASSWORD': config('PASSWORD_DB'),
+        'HOST': config('HOST_DB'),
+        'PORT':config('PORT_DB'),
     }
 }
-
-#remote server (only for TESt and QA)
-'''
-Username: propertyuser
-Database Name: property_dev
-Password: admin2022
-Server: db4free.net
-Port: 3306
-'''
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
