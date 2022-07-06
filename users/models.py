@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 
 class UserManager(BaseUserManager):
@@ -31,7 +31,7 @@ class Rol(models.Model):
     created_at = models.DateTimeField(auto_now_add=True) 
     
 
-class User(AbstractBaseUser, PermissionsMixin):
+class User(AbstractBaseUser):
     
     rol = models.ForeignKey(Rol, on_delete=models.SET_NULL, null=True, blank=True)    
     email = models.EmailField(max_length=155, unique=True)

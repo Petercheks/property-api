@@ -1,15 +1,15 @@
 # **REQUIRED IN S.O:**
 
 ```
-- python=3.9.5
+- python=3.10.5
 ```
 
 # **HOW TO INSTALL:**
 ## 1. in console, create a virtual enviroment.
-ex: `virtualenv env -p python39`
+ex: `virtualenv venv -p python39`
 
 ## 2. activate the venv, with activate inside the new archive.
-ex: `env\scripts\activate.bat`
+ex: `venv\scripts\activate.bat`
 
 ## 3. install the requirements.txt y your active enviroment.
 ex: `pip install -r requirements.txt`

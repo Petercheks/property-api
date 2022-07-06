@@ -2,6 +2,9 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import status
+
+from users.serializers import UserSerializer
 
 import datetime
 
@@ -26,6 +29,22 @@ class SignIn(ObtainAuthToken):
             'firstname': user.firstname,
             'lastname': user.lastname,
         })
+
+
+class SignUp(ObtainAuthToken):
+
+    def post(self, request, *args, **kwargs):
+        serializer = UserSerializer(data=request.data)
+        
+        if serializer.is_valid():
+            serializer.save()
+
+        else:
+            return Response({'datail': serializer.errors}, status.HTTP_400_BAD_REQUEST)
+
+        sign_in_data = SignIn.post(self, request)
+
+        return sign_in_data
 
 
 class SignOut(APIView):
