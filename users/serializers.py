@@ -8,6 +8,21 @@ class RolSerializer(serializers.ModelSerializer):
         model = Rol
         fields = '__all__'
 
+    def create(self, validated_data):
+        rol = Rol(**validated_data)
+        rol.name = (validated_data['name']).upper().replace(" ", "_")
+        rol.save()
+
+        return rol
+
+    def update(self, instance, validated_data):
+        updated_rol = super().update(instance, validated_data)
+        updated_rol.name = (validated_data['name']).upper().replace(" ", "_")
+        updated_rol.save()
+
+        return updated_rol
+
+
 
 class UserSerializer(serializers.ModelSerializer):
 
@@ -23,7 +38,6 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
     def update(self, instance, validated_data):
-        print(validated_data)
         updated_user = super().update(instance, validated_data)
         updated_user.set_password(validated_data['password'])
         updated_user.save()

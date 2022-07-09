@@ -1,7 +1,7 @@
 # **REQUIRED IN S.O:**
 
 ```
-- python=3.10.5
+- python=3.9.13
 ```
 
 # **HOW TO INSTALL:**
